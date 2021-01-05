@@ -1,0 +1,8 @@
+.itemCounter{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}
+.countNumber{
+    padding:10px;
+}
