@@ -6,3 +6,6 @@
 .countNumber{
     padding:10px;
 }
+.card .card-image img{
+    width: 150px;
+}

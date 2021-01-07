@@ -7,7 +7,7 @@ const NavBar = () => {
             <nav>
             <div className="nav-wrapper">
               <a href="#" className="brand-logo">Mi tienda</a>
-              <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <ul id="nav-mobile" className="right hide-on-med-and-down">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Productos</a></li>
                 <li><a href="#">¿Quiénes Somos?</a></li>

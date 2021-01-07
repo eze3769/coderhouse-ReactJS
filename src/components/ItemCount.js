@@ -1,4 +1,4 @@
-import React , { useState , useEffect } from "react"
+import React , { useState } from "react"
 
 const ItemCount = () => {
 
@@ -21,7 +21,7 @@ const ItemCount = () => {
             <a onClick={ counterUp } className="btn-floating btn-small waves-effect waves-light red"><i className="material-icons">add</i></a>
         </div>
         <div className="itemAdd">
-            <a class="waves-effect waves-light btn red">Agregar al carrito</a>
+            <a className="waves-effect waves-light btn red">Agregar al carrito</a>
         </div>
         </>
     )
