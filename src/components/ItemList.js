@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from 'react'
-import ItemCount from './ItemCount'
-const ItemList = () => {
+import Item from './Item';
+
+const ItemList = () => {    
     var baseDeDatos = [
         {
             id : 0,
@@ -41,29 +42,14 @@ const ItemList = () => {
         })
     return (
                 <>
-                    {items.map((producto)=>{
+                    {items.map((products)=>{
                         return(
-                            <li className="product-item">
-                                <div className="row">
-                                    <div className="col s12 m7">
-                                        <div className="card medium">
-                                          <div className="card-image">
-                                            <img src={producto.imagen} className="item-img"></img>
-                                            <span className="card-title black-text">{producto.nombre}</span>
-                                            <p>$ {producto.precio}</p>
-                                          </div>
-                                          <div className="card-action">
-                                          <ItemCount/>
-                                          </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+                                <Item id={products.id} itemName={products.nombre} price={products.precio} img={products.imagen} description={products.descripcion}/>
                         )
                     })}
-                    
                 </>
+                
     )
 }
 
-export default ItemList
+export default ItemList 

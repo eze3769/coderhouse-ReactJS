@@ -1,17 +1,18 @@
 import React , { useState , useEffect } from "react"
-import ItemListContainer from './components/ItemListContainer'
-import NavBar from './components/NavBar'
 
+import NavBar from './components/NavBar'
+import {BrowserRouter} from 'react-router-dom'
+import Main from "./components/Main"
 
 
 const App = () =>{
 
 
     return (
-            <div>
+            <BrowserRouter>
                 <NavBar/>
-                <ItemListContainer />
-            </div>
+                <Main/>
+            </BrowserRouter>
     )
 
 }

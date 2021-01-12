@@ -21,7 +21,7 @@ const ItemCount = () => {
             <a onClick={ counterUp } className="btn-floating btn-small waves-effect waves-light red"><i className="material-icons">add</i></a>
         </div>
         <div className="itemAdd">
-            <a className="waves-effect waves-light btn red">Agregar al carrito</a>
+            <a className="waves-effect waves-light btn red ">Agregar al <i className="material-icons">shopping_cart</i></a>
         </div>
         </>
     )
