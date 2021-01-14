@@ -31,28 +31,44 @@ const products = [
  
 
 const ItemDetailContainer = () => {
-    let [details,setDetails] = useState()
+    let [details,setDetails] = useState([])
     const {id} = useParams(); 
-    useEffect(()=>{
-        let request = new Promise((resolve,reject)=>{
+    let request = new Promise((resolve,reject)=>{
         setTimeout(()=>{
             resolve(products)
         },2000)})
-    
+    useEffect(()=>{
     request
     .then(res =>{
-        let selection = res.filter(element => element.id == id)[0]
-        
+        const selectionArray = res.filter(element => element.id == id)
+        const selection = selectionArray[0]
+        console.log(selectionArray)
+
         setDetails(selection)
+        console.log(details)
         console.log(selection)
-            
     })
     },[id])
     return (
         <>
-        {details
-            ? <ItemDetail details={details}/> 
-            : <p>Cargando</p>}
+        {details.id !== undefined
+            ? <ItemDetail detailsData={details}/> 
+            :<>
+            <div className="preloader-wrapper valign-wrapper center-align active">
+                <div className="spinner-layer spinner-red-only">
+                    <div className="circle-clipper left">
+                        <div className="circle"></div>
+                    </div>
+                    <div className="gap-patch">
+                        <div className="circle"></div>
+                    </div>
+                    <div className="circle-clipper right">
+                        <div className="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <p>Cargando..</p>
+            </>}
            
         </>
     )

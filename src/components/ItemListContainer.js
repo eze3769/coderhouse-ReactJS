@@ -1,11 +1,10 @@
 import React from 'react'
 import ItemList from './ItemList'
 
-const ItemListContainer = ({item}) => {
-    
+const ItemListContainer = (item) => {
     return (
         <ul>
-            <ItemList/>
+            <ItemList selection={item}/>
         </ul>
     )
 }
