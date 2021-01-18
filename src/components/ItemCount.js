@@ -1,10 +1,12 @@
 import React , { useState } from "react"
 
-const ItemCount = () => {
+
+const ItemCount = ({stock,onAdd}) => {
 
     const [counter, setCounter] = useState(1)
     const counterUp = () =>{
-        setCounter(counter + 1)
+        if(counter < stock){
+            setCounter(counter + 1)}
     } 
     const counterDown = () =>{
         if (counter > 1){
@@ -12,7 +14,10 @@ const ItemCount = () => {
         }
         
     }
-
+    const addToCart = ()=>{
+        onAdd(counter)
+        console.log(`contador:${counter}`)
+    }
     return (
         <div className="center">
         <div className="itemCounter">
@@ -21,7 +26,7 @@ const ItemCount = () => {
             <a onClick={ counterUp } className="btn-floating btn-small waves-effect waves-light red"><i className="material-icons">add</i></a>
         </div>
         <div className="itemAdd">
-            <a className="waves-effect waves-light btn red ">Agregar al <i className="material-icons">shopping_cart</i></a>
+            <a onClick={addToCart} className="waves-effect waves-light btn red ">Agregar al <i className="material-icons">shopping_cart</i></a>
         </div>
         </div>
     )

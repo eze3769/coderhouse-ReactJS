@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react'
+import React, {useState} from 'react'
 import ItemListContainer from './ItemListContainer'
 
 const Products = () => {
@@ -7,7 +7,7 @@ const Products = () => {
     const productSelect = event =>{
         setSelection(event.target.id)
     }
-
+    
     return (
         <>
         <div className="row">

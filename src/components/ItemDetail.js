@@ -1,8 +1,13 @@
-import React from 'react'
+import React,{useState} from 'react'
 import ItemCount from './ItemCount'
-
+import {NavLink} from 'react-router-dom'
 
 const ItemDetail = ({detailsData}) => {
+    const [detailCounter, setDetailCounter] =useState(0)
+    const onAdd = (quantity) =>{
+        setDetailCounter(quantity)
+        console.log(quantity)
+    }
     
     return (
         <>
@@ -13,7 +18,13 @@ const ItemDetail = ({detailsData}) => {
             </div>
             <div className="col l7 s12 center"> 
                 <h4>{detailsData.precio}</h4>
-                <ItemCount/>
+                <p>Stock: {detailsData.stock}</p>
+                {detailCounter === 0 ?
+                 <ItemCount stock={detailsData.stock} onAdd={onAdd}/>
+                 :  <NavLink to="/cart" className="waves-effect waves-light btn red " >Terminar mi compra</NavLink>
+                }
+               
+                
             </div>
             </div>
             <div className="divider"></div>

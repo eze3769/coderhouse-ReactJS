@@ -37,15 +37,14 @@ const ItemList = ({selection}) => {
         useEffect(() => {
             const traerDatos = new Promise((resolve,reject)=>{
                 setTimeout(()=>{
-                    const datos = baseDeDatos
-                    resolve(datos)
+                    resolve(baseDeDatos)
                 },2000)
                 
-            })
+            },[])
             traerDatos
             .then(resolve=>{
                 if (selection.selected === "all"){
-                    setItems(baseDeDatos)      
+                    setItems(resolve)      
                 }else{
                     const filtered = baseDeDatos.filter(products => products.categoria === selection.selected)
                     setItems(filtered)
@@ -61,7 +60,7 @@ const ItemList = ({selection}) => {
                     ?
                         items.map((products)=>{
                         return(
-                                <Item id={products.id} itemName={products.nombre} price={products.precio} img={products.imagen} description={products.descripcion}/>
+                                <Item key={products.id} id={products.id} itemName={products.nombre} price={products.precio} img={products.imagen} description={products.descripcion}/>
                         )})   
                 : 
                 <div>
