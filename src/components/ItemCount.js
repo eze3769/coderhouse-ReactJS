@@ -1,9 +1,11 @@
-import React , { useState } from "react"
+import React , { useState,  useContext  } from "react"
+import { CartContext } from './CartContext';
 
 
-const ItemCount = ({stock,onAdd}) => {
+const ItemCount = ({details}) => {
 
     const [counter, setCounter] = useState(1)
+    const stock = details.stock
     const counterUp = () =>{
         if(counter < stock){
             setCounter(counter + 1)}
@@ -14,10 +16,12 @@ const ItemCount = ({stock,onAdd}) => {
         }
         
     }
-    const addToCart = ()=>{
-        onAdd(counter)
-        console.log(`contador:${counter}`)
+    const { addToCart } = useContext(CartContext)
+    const clickToAdd =() =>{
+        addToCart(details, counter)
     }
+    
+    
     return (
         <div className="center">
         <div className="itemCounter">
@@ -26,7 +30,7 @@ const ItemCount = ({stock,onAdd}) => {
             <a onClick={ counterUp } className="btn-floating btn-small waves-effect waves-light red"><i className="material-icons">add</i></a>
         </div>
         <div className="itemAdd">
-            <a onClick={addToCart} className="waves-effect waves-light btn red ">Agregar al <i className="material-icons">shopping_cart</i></a>
+            <a onClick={clickToAdd} className="waves-effect waves-light btn red ">Agregar al <i className="material-icons">shopping_cart</i></a>
         </div>
         </div>
     )

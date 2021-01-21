@@ -4,28 +4,28 @@ import Item from './Item';
 const ItemList = ({selection}) => {    
     var baseDeDatos = [
         {
-            id : 0,
+            id : 1,
             nombre: 'Shampoo de Pelo Graso',
             descripcion: '-Aceite de Jojoba.\n- Té verde.\n- Arcilla verde.\n- Aceites esenciales de limón y menta.',
             precio: 360,
             imagen: 'https://aromarte.com.ar/wp-content/uploads/2020/11/shampoo-limon-y-menta-150x150.jpg',
             categoria: 'shampoo'
         },{
-            id : 1,
+            id : 2,
             nombre: 'Shampoo de Pelo Normal',
             descripcion: '- Aceite de ricino.\n- Manteca de karité.\n- Arcilla blanca.\n- Aceites esenciales de jazmín y naranja.',
             precio: 360,
             imagen: 'https://aromarte.com.ar/wp-content/uploads/2020/11/shampoo-jazmin-y-naranja-150x150.jpg',
             categoria: 'shampoo'
         },{
-            id :2,
+            id :3,
             nombre: 'Shampoo de Pelo Seco',
             descripcion: '- Aceite de almendras dulces.\n- Manteca de karité.\n- Avena.\n- Arcilla roja.\n- Aceites esenciales de lavanda y tea tree.',
             precio: 360,
             imagen: 'https://aromarte.com.ar/wp-content/uploads/2020/11/shampoo-tea-tree-y-lavanda-150x150.jpg',
             categoria: 'shampoo'
         },{
-            id : 3,
+            id : 4,
             nombre: 'Vela de soja',
             descripcion: '- Duran más que las de parafina, y su olor se desprende más rápido.\n- Son amigables con el medio ambiente.\n- Dejan un aroma riquísimo!\n- Aceites esenciales de limón y menta.',
             precio: 380,
@@ -58,9 +58,9 @@ const ItemList = ({selection}) => {
         <>
                     {items.length > 0  
                     ?
-                        items.map((products)=>{
+                        items.map((Items)=>{
                         return(
-                                <Item key={products.id} id={products.id} itemName={products.nombre} price={products.precio} img={products.imagen} description={products.descripcion}/>
+                                <Item key={Items.id} id={Items.id} itemName={Items.nombre} price={Items.precio} img={Items.imagen} description={Items.descripcion}/>
                         )})   
                 : 
                 <div>

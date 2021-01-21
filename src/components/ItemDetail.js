@@ -1,14 +1,16 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect, useContext} from 'react'
 import ItemCount from './ItemCount'
 import {NavLink} from 'react-router-dom'
+import { CartContext } from './CartContext';
 
 const ItemDetail = ({detailsData}) => {
     const [detailCounter, setDetailCounter] =useState(0)
-    const onAdd = (quantity) =>{
-        setDetailCounter(quantity)
-        console.log(quantity)
-    }
-    
+    const { cartList } = useContext(CartContext)
+
+    useEffect(()=>{
+        setDetailCounter(cartList)
+    },[cartList])
+    console.log(cartList)
     return (
         <>
             <h3>{detailsData.nombre}</h3>
@@ -19,10 +21,11 @@ const ItemDetail = ({detailsData}) => {
             <div className="col l7 s12 center"> 
                 <h4>{detailsData.precio}</h4>
                 <p>Stock: {detailsData.stock}</p>
-                {detailCounter === 0 ?
-                 <ItemCount stock={detailsData.stock} onAdd={onAdd}/>
-                 :  <NavLink to="/cart" className="waves-effect waves-light btn red " >Terminar mi compra</NavLink>
-                }
+
+                
+                 <ItemCount details={detailsData} stock={detailsData.stock} />
+                  <NavLink to="/cart" className="waves-effect waves-light btn red " >Terminar mi compra</NavLink>
+                
                
                 
             </div>
