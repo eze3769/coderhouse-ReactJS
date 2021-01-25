@@ -1,12 +1,46 @@
-import React from 'react'
+import React,{useContext} from 'react'
+import { CartContext } from './CartContext';
+import {Link} from 'react-router-dom'
 
 const Cart = () => {
+const{cartList, itemDelete, quantity, total} = useContext(CartContext)
+
+
     return (
         <>
         <h2>
             Mi pedido
         </h2>
-        
+        {console.log(cartList)}
+        {cartList == 0 ?
+            <>
+            <p>No hay productos en el carrito</p>
+            <Link to="/productos" className="waves-effect waves-light btn">Ir a comprar</Link>
+            </>
+            :   <>
+                <ul className="collection">
+                {cartList.map((cartList)=>{
+            return(
+                    
+                    <li className="collection-item avatar" key={cartList.id}>
+                    <img src={cartList.imagen} alt="{cartList.nombre}" className="circle"/>
+                    <span className="title">{cartList.nombre}</span>
+                    <p>Precio (por unidad): {cartList.precio} <br></br>
+                        Cantidad: {cartList.cantidad}
+                    </p>
+                    <a href="#!" onClick={() => itemDelete(cartList.id)} className="secondary-content"><i className="material-icons">delete</i></a>
+                    </li>      
+            )})   
+            }  
+            </ul>
+            <ul className="collection">
+                <li className="collection-item">Productos en el carrito: {quantity}</li>
+                <li className="collection-item">Total: {total}</li>
+            </ul>
+            </>
+
+        }
+            
         </>
     )
 }

@@ -1,16 +1,10 @@
-import React,{useState, useEffect, useContext} from 'react'
+import React,{} from 'react'
 import ItemCount from './ItemCount'
 import {NavLink} from 'react-router-dom'
-import { CartContext } from './CartContext';
 
 const ItemDetail = ({detailsData}) => {
-    const [detailCounter, setDetailCounter] =useState(0)
-    const { cartList } = useContext(CartContext)
 
-    useEffect(()=>{
-        setDetailCounter(cartList)
-    },[cartList])
-    console.log(cartList)
+
     return (
         <>
             <h3>{detailsData.nombre}</h3>
@@ -23,7 +17,7 @@ const ItemDetail = ({detailsData}) => {
                 <p>Stock: {detailsData.stock}</p>
 
                 
-                 <ItemCount details={detailsData} stock={detailsData.stock} />
+                 <ItemCount details={detailsData} />
                   <NavLink to="/cart" className="waves-effect waves-light btn red " >Terminar mi compra</NavLink>
                 
                
@@ -32,7 +26,7 @@ const ItemDetail = ({detailsData}) => {
             </div>
             <div className="divider"></div>
             <div className="section col s12">
-                <h5>Descripcion</h5>
+                <h5>Descripción</h5>
                 <p>{detailsData.descripcion}</p>
             </div>    
         </>

@@ -3,6 +3,8 @@ import ItemCount from './ItemCount'
 import {Link} from 'react-router-dom'
 
 const Item = (props) => {
+
+  
     return (
         <li>
         <div className="row ">
@@ -14,6 +16,7 @@ const Item = (props) => {
                   <div className="card-content">
                     <Link to={`/producto/${props.id}`}><h6 className="black-text ">{props.itemName}</h6></Link>
                     <p>$ {props.price}</p>
+                    <p>Stock: {props.stock}</p>
                   </div>
                   <div className="card-action ">
                     <ItemCount details={props}/>

@@ -16,6 +16,7 @@ const App = () =>{
                 <div className="container">
                     <Main/>
                 </div>
+                
                 </CustomProvider>
             </BrowserRouter>
     )

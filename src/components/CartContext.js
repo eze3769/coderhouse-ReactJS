@@ -2,7 +2,7 @@ import React,{createContext, useState, useEffect} from 'react'
 
 export const CartContext = createContext();
 
-const {Consumer, Provider} = CartContext
+const { Provider} = CartContext
 
 
 const CustomProvider = ({ children }) => {
@@ -13,11 +13,12 @@ const CustomProvider = ({ children }) => {
 
     useEffect (()=>{
         let totalCart = 0
-        if (cartList != []){
+        if (cartList !== []){
             const totalCost = cartList.map(item => item.precio * item.cantidad)
-            
+            totalCost.map(item => totalCart = totalCart + item)
             setTotal(totalCart)
-            const cartQuantity = cartList.length
+            let cartQuantity = 0
+            cartList.map(item => cartQuantity= cartQuantity + item.cantidad)
             setQuantity(cartQuantity)
         }
         
@@ -25,7 +26,7 @@ const CustomProvider = ({ children }) => {
         console.log("carrito:"+ cartList)
         console.log("cantidad:"+ quantity)
 
-    },[cartList])
+    },[cartList,quantity,total])
   
     const addToCart = (details, counter) => {
         
@@ -36,6 +37,7 @@ const CustomProvider = ({ children }) => {
         }else{
             const newItem = {
                 id : details.id,
+                imagen : details.imagen,
                 nombre : details.nombre,
                 precio : details.precio,
                 cantidad : counter
@@ -62,13 +64,14 @@ const CustomProvider = ({ children }) => {
         setCartList([])
     };
   
-    const itemDelete = () => {
-
+    const itemDelete = (id) => {
+        const newCart = cartList.splice(id,1)
+        setCartList(newCart)
     };
   
     return (
       <Provider
-        value={{ cartList, addToCart, cartClean, itemDelete}}
+        value={{ cartList, addToCart, cartClean, itemDelete, quantity, total}}
       >
         {children}
       </Provider>

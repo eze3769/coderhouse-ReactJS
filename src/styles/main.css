@@ -15,3 +15,27 @@
     display: flex;
     flex-direction: column;
 }
+.icon-container{
+    display:flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    position:relative;
+}
+
+.cart__number{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#fff;
+    left: 53%;
+    top: 30%;
+    padding: 1px;
+    margin: 0px;
+    position: absolute;
+    background-color: #f44336;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    
+}

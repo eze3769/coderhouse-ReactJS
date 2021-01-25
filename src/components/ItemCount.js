@@ -25,12 +25,12 @@ const ItemCount = ({details}) => {
     return (
         <div className="center">
         <div className="itemCounter">
-            <a onClick={ counterDown } className="btn-floating btn-small waves-effect waves-light red"><i className="material-icons">remove</i></a>
+            <button onClick={ counterDown } className="btn-floating btn-small waves-effect waves-light red"><i className="material-icons">remove</i></button>
             <p className="countNumber">{counter}</p>
-            <a onClick={ counterUp } className="btn-floating btn-small waves-effect waves-light red"><i className="material-icons">add</i></a>
+            <button  onClick={ counterUp } className="btn-floating btn-small waves-effect waves-light red"><i className="material-icons">add</i></button>
         </div>
         <div className="itemAdd">
-            <a onClick={clickToAdd} className="waves-effect waves-light btn red ">Agregar al <i className="material-icons">shopping_cart</i></a>
+            <button  onClick={clickToAdd} className="waves-effect waves-light btn red ">Agregar al <i className="material-icons">shopping_cart</i></button>
         </div>
         </div>
     )

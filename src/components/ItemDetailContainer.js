@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import ItemDetail from './ItemDetail'
+import Loader from './Loader';
 
 const products = [
     {
@@ -44,6 +45,7 @@ const ItemDetailContainer = () => {
     useEffect(()=>{
     request
     .then(res =>{
+        
         const selectionArray = res.filter(element => element.id == id)
         const selection = selectionArray[0]
         console.log(selectionArray)
@@ -55,22 +57,9 @@ const ItemDetailContainer = () => {
         <>
         {details !== undefined
             ? <ItemDetail detailsData={details}/> 
-            :<>
-            <div className="preloader-wrapper valign-wrapper center-align active">
-                <div className="spinner-layer spinner-red-only">
-                    <div className="circle-clipper left">
-                        <div className="circle"></div>
-                    </div>
-                    <div className="gap-patch">
-                        <div className="circle"></div>
-                    </div>
-                    <div className="circle-clipper right">
-                        <div className="circle"></div>
-                    </div>
-                </div>
-            </div>
-            <p>Cargando..</p>
-            </>}
+            :
+            <Loader/>
+            }
            
         </>
     )
