@@ -7,13 +7,13 @@ const ItemDetail = ({detailsData}) => {
 
     return (
         <>
-            <h3>{detailsData.nombre}</h3>
+            <h3>{detailsData.name}</h3>
             <div className="row">       
             <div className="col l5 s12 center"> 
-                <img className="valign-wrapper responsive-img" src={detailsData.imagen} alt=""/>
+                <img className="valign-wrapper responsive-img" src={detailsData.image} alt=""/>
             </div>
             <div className="col l7 s12 center"> 
-                <h4>{detailsData.precio}</h4>
+                <h4>{detailsData.price}</h4>
                 <p>Stock: {detailsData.stock}</p>
 
                 
