@@ -21,10 +21,6 @@ const CustomProvider = ({ children }) => {
             cartList.map(item => cartQuantity= cartQuantity + item.cantidad)
             setQuantity(cartQuantity)
         }
-        
-        console.log("total:"+ total)
-        console.log("carrito:"+ cartList)
-        console.log("cantidad:"+ quantity)
 
     },[cartList,quantity,total])
   
@@ -37,9 +33,9 @@ const CustomProvider = ({ children }) => {
         }else{
             const newItem = {
                 id : details.id,
-                imagen : details.imagen,
-                nombre : details.nombre,
-                precio : details.precio,
+                imagen : details.image,
+                nombre : details.name,
+                precio : details.price,
                 cantidad : counter
             }
             setCartList([...cartList, newItem]) 
@@ -47,7 +43,6 @@ const CustomProvider = ({ children }) => {
             
         
     }
-    console.log(cartList)
     };
     const isInCart = (item, cart) => {
   

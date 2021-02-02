@@ -10,21 +10,24 @@ const ItemDetailContainer = () => {
     let [details,setDetails] = useState([])
     const {id} = useParams(); 
     useEffect(()=>{
-        const db = firestore.collection("products");
-        const dataQuery = db.where("id", "==", id).get()
-        dataQuery
+        const db = firestore
+        const item = db.collection("products").doc(id)   
+        item.get()
         .then((res) => {
-                
-            setDetails(res.docs.map(p => ({id: p.id, ...p.data()})))  
+           if(!res.exists){
+               return false;
+           }else{
+               setDetails({id: res.id, ...res.data()})
+           }
       })
     },[id])
     const { addToCart } = useContext(CartContext)
-    console.log(details)
-    console.log(id)
     return (
         <>
         {details !== []
-            ? <ItemDetail detailsData={details}/> 
+            ?<> 
+            <ItemDetail detailsData={details}/> 
+            </>
             :
             <Loader/>
             }

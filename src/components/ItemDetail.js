@@ -1,9 +1,9 @@
-import React,{} from 'react'
+import React,{useContext} from 'react'
 import ItemCount from './ItemCount'
 import {NavLink} from 'react-router-dom'
-
+import { CartContext } from './CartContext';
 const ItemDetail = ({detailsData}) => {
-
+const {quantity} = useContext(CartContext)
 
     return (
         <>
@@ -18,7 +18,10 @@ const ItemDetail = ({detailsData}) => {
 
                 
                  <ItemCount details={detailsData} />
-                  <NavLink to="/cart" className="waves-effect waves-light btn red " >Terminar mi compra</NavLink>
+                 {quantity !== 0 ?
+                 <NavLink to="/cart" className="waves-effect waves-light btn red " >Terminar mi compra</NavLink>
+                : <></>}
+                  
                 
                
                 
@@ -27,7 +30,7 @@ const ItemDetail = ({detailsData}) => {
             <div className="divider"></div>
             <div className="section col s12">
                 <h5>Descripción</h5>
-                <p>{detailsData.descripcion}</p>
+                <p>{detailsData.description}</p>
             </div>    
         </>
     )

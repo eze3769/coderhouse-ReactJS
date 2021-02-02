@@ -4,6 +4,11 @@
     align-items: center;
     justify-content: center;
 }
+.home__image{
+    width: 100vw;
+    left:0;
+    position: absolute;
+}
 .countNumber{
     padding:10px;
 }

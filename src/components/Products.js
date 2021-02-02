@@ -7,7 +7,6 @@ const Products = () => {
     const productSelect = event =>{
         setSelection(event.target.id)
     }
-    
     return (
         <>
         <div className="row">
