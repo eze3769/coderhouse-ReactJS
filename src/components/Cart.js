@@ -1,17 +1,20 @@
-import React,{useContext} from 'react'
+import React,{useContext,useEffect} from 'react'
 import { CartContext } from './CartContext';
 import {Link} from 'react-router-dom'
 
 const Cart = () => {
-const{cartList,cartClean, itemDelete, quantity, total} = useContext(CartContext)
+const{cartList, cartClean, itemDelete, quantity, total} = useContext(CartContext)
 
+useEffect(()=>{
+    
+},[cartList])
 
     return (
         <>
         <h2>
             Mi pedido
         </h2>
-        {cartList == 0 ?
+        {quantity === 0 ?
             <>
             <p>No hay productos en el carrito</p>
             <Link to="/productos" className="waves-effect waves-light btn">Ir a comprar</Link>

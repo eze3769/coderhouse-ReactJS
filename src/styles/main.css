@@ -4,8 +4,9 @@
     align-items: center;
     justify-content: center;
 }
+
 .home__image{
-    width: 100vw;
+    width: 100%;
     left:0;
     position: absolute;
 }
@@ -43,4 +44,33 @@
     width: 20px;
     height: 20px;
     
+}
+.padding-100{
+    padding:100px;
+}
+main {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+.tabsProps{
+    width: 100%;
+    margin-top: 3px;
+}
+footer{
+    bottom:0px;
+    display: flex;
+    flex-direction: column;
+}
+.orders__list{
+    display: flex;
+    flex-direction: row;
+}
+.orders__listTitle{
+    font-weight: bold;
+    padding-right:5px;
 }

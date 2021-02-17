@@ -2,8 +2,8 @@ import React from 'react'
 
 const Loader = () => {
     return (
-        <div>
-                <div className="preloader-wrapper valign-wrapper center-align active">
+        <div className="center padding-100">
+                <div className="preloader-wrapper   active">
                     <div className="spinner-layer spinner-red-only">
                         <div className="circle-clipper left">
                             <div className="circle"></div>
@@ -16,7 +16,7 @@ const Loader = () => {
                         </div>
                     </div>
                 </div>
-                <p>Cargando..</p>
+                <p>Cargando... </p>
                 </div>
     )
 }

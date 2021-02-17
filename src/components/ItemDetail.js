@@ -1,11 +1,23 @@
-import React,{useContext} from 'react'
+import React,{useContext,useEffect,useState} from 'react'
 import ItemCount from './ItemCount'
 import {NavLink} from 'react-router-dom'
 import { CartContext } from './CartContext';
-const ItemDetail = ({detailsData}) => {
+import Loader from './Loader';
+
+const ItemDetail = ({detailsData,verifyExistance}) => {
 const {quantity} = useContext(CartContext)
+const [waitForSignal,setWaitForSignal] = useState(false)
+useEffect(()=>{
+    if (verifyExistance === false){
+        setTimeout(() => {
+        setWaitForSignal(true)
+        }, 1500);
+    }
+     
+},[verifyExistance])
 
     return (
+        verifyExistance ?
         <>
             <h3>{detailsData.name}</h3>
             <div className="row">       
@@ -33,6 +45,14 @@ const {quantity} = useContext(CartContext)
                 <p>{detailsData.description}</p>
             </div>    
         </>
+        :
+        waitForSignal ?
+        <>
+        <h2><i class="material-icons medium">warning</i> Lo que busca no existe</h2>
+        <p>Verifique la ruta de navegación a la que intenta acceder.</p>
+        </>
+        :
+        <Loader/>
     )
 }
 

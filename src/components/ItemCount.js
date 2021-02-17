@@ -23,16 +23,22 @@ const ItemCount = ({details}) => {
     
     
     return (
+        
+        details.stock > 0 ?    
         <div className="center">
         <div className="itemCounter">
             <button onClick={ counterDown } className="btn-floating btn-small waves-effect waves-light red"><i className="material-icons">remove</i></button>
             <p className="countNumber">{counter}</p>
             <button  onClick={ counterUp } className="btn-floating btn-small waves-effect waves-light red"><i className="material-icons">add</i></button>
         </div>
+        
         <div className="itemAdd">
             <button  onClick={clickToAdd} className="waves-effect waves-light btn red ">Agregar al <i className="material-icons">shopping_cart</i></button>
         </div>
         </div>
+        : 
+        <p><i>Sin stock</i></p>
+        
     )
 }
 

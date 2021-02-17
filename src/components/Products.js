@@ -1,5 +1,6 @@
-import React, {useState} from 'react'
+import React, {useState,useEffect} from 'react'
 import ItemListContainer from './ItemListContainer'
+import M from 'materialize-css'
 
 const Products = () => {
     
@@ -7,11 +8,16 @@ const Products = () => {
     const productSelect = event =>{
         setSelection(event.target.id)
     }
+    useEffect(() => {
+        M.AutoInit()
+        
+    }, [])
+   
     return (
         <>
-        <div className="row">
+        <div className="row tabsProps">
     <div className="col s12">
-      <ul className="tabs">
+      <ul className="tabs ">
         <li className="tab col s3"><a id="all" onClick={productSelect} className="active" href="#test1">Todo</a></li>
         <li className="tab col s3"><a id="shampoo"onClick={productSelect} href="#test2">Shampoo</a></li>
         <li className="tab col s3"><a id="velas"onClick={productSelect} href="#test3">Velas</a></li>

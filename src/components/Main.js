@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useContext,useEffect} from 'react'
 import {Route, Switch} from 'react-router-dom'
 import Cart from './Cart'
 import Contact from './Contact'
@@ -8,7 +8,12 @@ import Checkout from './Checkout'
 import ItemDetailContainer from './ItemDetailContainer'
 import Products from './Products'
 import Us from './Us'
+import { CartContext } from './CartContext'
 const Main = () => {
+const {cartLoad} = useContext(CartContext)
+useEffect(()=>{
+    cartLoad()
+},[])
 
     return (
         <main>
